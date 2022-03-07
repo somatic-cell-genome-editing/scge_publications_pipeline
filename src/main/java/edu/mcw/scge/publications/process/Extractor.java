@@ -116,7 +116,7 @@ public class Extractor {
                         Map<String, String> articleIdMap=parseArticleIdList(doc);
                         if(articleIdMap.get("doi")!=null)
                         reference.setDoi(articleIdMap.get("doi"));
-                        processor.updateArticleIds(parseArticleIdList(doc), refKey);
+                        processor.updateArticleIds(parseArticleIdList(doc), refKey, 0);
 
                     }
                 }

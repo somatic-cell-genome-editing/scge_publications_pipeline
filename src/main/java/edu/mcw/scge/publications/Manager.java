@@ -37,9 +37,9 @@ public class Manager {
 //        System.out.println(json.toString());
 
   //      System.out.println(json.get("pmid"));
-     //   List<Long> pmids=publicationDAO.getAllPublicationIds();
-    //  for(long pmid:pmids){
-           long pmid=32675376;
+      List<Long> pmids=publicationDAO.getAllPMIDs();
+     for(long pmid:pmids){
+         //  long pmid=32675376;
             //https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=22368089&retmode=xml&rettype=abstract
             String url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"+
                     "db=pubmed" +
@@ -47,7 +47,7 @@ public class Manager {
                     "&id="+pmid;
 
             extractor.fetchArticle(pmid, url);
-       // }
+       }
 
 
     }

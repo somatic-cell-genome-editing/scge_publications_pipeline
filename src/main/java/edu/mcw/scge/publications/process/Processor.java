@@ -20,13 +20,14 @@ public class Processor {
     public void insertAuthor(List<Author> authors, int  refKey) throws Exception {
         for(Author author:authors) {
             int authorKey=publicationDAO.getNextKey("pub_authors_seq");
+            author.setKey(authorKey);
             publicationDAO.insertAuthor(author);
             publicationDAO.insertPubAuthorAssociation(refKey,authorKey, 0);
         }
 
     }
 
-    public void updateArticleIds(Map<String, String> articleIdMap, int refKey) {
+    public void updateArticleIds(Map<String, String> articleIdMap, int refKey,long scgeId) throws Exception {
         for(Map.Entry entry:articleIdMap.entrySet()){
             String idType= (String) entry.getKey();
             String id= (String) entry.getValue();
